@@ -1,9 +1,6 @@
 import requests
 import pandas as pd
 
-# Set the URL you want to webscrape from
-
-
 LAST_DATA = {
     "name": "test",
     "gender": "0"
@@ -40,7 +37,5 @@ for line in data:
     COUNTER = COUNTER + 1
     print("Currently at ", COUNTER)
     line['Gender, M=0, F=1'] = gender(line.iloc[0]['First.Name'])
-
-    # Save the file to a csv, appending each new chunk you process. mode='a' means append.
     line.to_csv('final.csv', mode='a', header=write_header, index=False)
     write_header = False
